@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Love for Syume 💖</title>
+<style>
+body{
+  margin:0;
+  padding:0;
+  text-align:center;
+  font-family:'Pacifico', cursive;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  overflow:hidden;
+}
+
+.container{
+  margin-top:80px;
+}
+
+h1{
+  color:white;
+  font-size:30px;
+}
+
+p.typing{
+  color:white;
+  font-size:18px;
+  border-right:2px solid white;
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation: typing 4s steps(40,end) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing{
+  from{width:0;}
+  to{width:100%;}
+}
+@keyframes blink{
+  50%{border-color:transparent;}
+}
+
+button{
+  padding:12px 25px;
+  margin:10px;
+  border:none;
+  border-radius:25px;
+  font-size:18px;
+  cursor:pointer;
+}
+.yes{
+  background:#ff4d88;
+  color:white;
+}
+.no{
+  background:#444;
+  color:white;
+}
+
+#message{
+  display:none;
+  color:white;
+  font-size:20px;
+  margin-top:20px;
+}
+
+/* floating hearts */
+.heart{
+  position: absolute;
+  color: red;
+  font-size:20px;
+  animation: float 5s linear infinite;
+}
+@keyframes float{
+  0%{transform: translateY(0);}
+  100%{transform: translateY(-100vh);}
+}
+</style>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+<h1>To My Syume 💖</h1>
+<p class="typing">You make my life beautiful every single day 🌸</p>
+<h2>Will you stay with me forever? 💍</h2>
+
+<img src="one.jpg" width="200">
+
+<button class="yes" onclick="showLove()">Yes My Love ❤️</button>
+<button class="no" onmouseover="moveNo()">No 😂</button>
+
+<div id="message">
+Syume 💕<br>
+You are my heart, my happiness, my everything 💖<br>
+I love you forever 😘
+</div>
+
+<!-- Audio -->
+<audio id="loveAudio" loop>
+  <source src="love.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<button id="startMusic">Play Music 💖</button>
+
+</div>
+
+<script>
+/* Show message */
+function showLove(){
+  document.getElementById("message").style.display="block";
+}
+
+/* Moving No button */
+function moveNo(){
+  const btn=document.querySelector(".no");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*window.innerWidth+"px";
+  btn.style.top=Math.random()*window.innerHeight+"px";
+}
+
+/* Floating hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=Math.random()*20+10+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},5000);
+}
+setInterval(createHeart,300);
+
+/* Play music button */
+document.getElementById("startMusic").addEventListener("click", function(){
+  document.getElementById("loveAudio").play();
+});
+</script>
+
+</body>
+</html>
